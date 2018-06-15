@@ -1,17 +1,16 @@
-# easy-catkin
-This repository constains some scripts that have improved by catkin workflow
-when doing ROS development.
+# catkin_make_easy
 
-`catkin_toplevel` is a Python script that prints the path of the root of the
-current catkin workspace, or nothing if the current directory isn't in one.
-This is used by `catkin.sh`. `catkin_toplevel` should be moved somewhere on
-your path, like `/usr/local/bin/`.
+This repository provides an alternative to the `catkin_make` command for ROS,
+called `catkin_make_easy`. As the name suggests, the goal is to make the
+command easier to use.
 
-`catkin.zsh` is a shell script intended to be sourced by your .zshrc file (this
-can easily be changed to work with bash instead). This creates the shell
-function `catkin`, which automatically runs `catkin_make && source
-devel/setup.zsh` from anywhere in a catkin workspace. Alternatively, run
-`catkin -s` to only do the sourcing.
+The `catkin_make_easy` command differs from regular `catkin_make` in two ways:
+1. It can be run from anywhere in the directory tree of a catkin workspace.
+2. It automatically sources `devel/setup.zsh`. If you do `catkin_make_easy -s`,
+   it will only source the setup file without building.
 
-Finally, `catkin.sh` also provides to short aliases, `ck` for `catkin`, and
-`cks` for `catkin -s`.
+Two convenience aliases are also defined, `ck` for `catkin_make_easy`, and
+`cks` for `catkin_make_easy -s`.
+
+Currently, only zsh is supported. To enable the command, simply arrange for the
+`catkin_make_easy.zsh` to be sourced by your `.zshrc`.
