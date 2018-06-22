@@ -28,7 +28,7 @@ catkin_make_easy() {
       source devel/setup.zsh
     ;;
     *)
-      catkin_make && source devel/setup.zsh
+      catkin_make $@ && source devel/setup.zsh
     ;;
   esac
 
